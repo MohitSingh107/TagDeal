@@ -1,0 +1,20 @@
+<div class="promotional-container">
+    <h1><b>Diwali Offer</b></h1>
+    <div class="smartphone-grid">
+      <ng-container *ngFor="let smartphone of smartphones">
+        <div *appPromotionHighlight="smartphone; let discount = discountPercentage; let highlightClass = highlightClass; let showHotDeal = showHotDealBadge; let showGoodDeal = showGoodDealBadge"
+             [ngClass]="highlightClass" class="smartphone-card">
+          <img [src]="smartphone.imageUrl" [alt]="smartphone.name">
+          <h2>{{ smartphone.name }}</h2>
+          <p class="price">
+            <span class="discounted-price">₹{{ smartphone.discountedPrice }}</span>
+            <span class="original-price">₹{{ smartphone.price }}</span>
+          </p>
+          <p class="discount">{{ discount }}% off</p>
+          <button class="buy-now">Buy Now</button>
+          <span *ngIf="showHotDeal" class="hot-deal-badge">Hot Deal!</span>
+          <span *ngIf="showGoodDeal" class="good-deal-badge">Good Deal!</span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
